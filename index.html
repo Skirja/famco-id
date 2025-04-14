@@ -987,6 +987,44 @@
         .qna-card .bg-card-teal {
             animation: pulse 2s infinite;
         }
+
+        /* Dropdown for mobile view switch */
+        .view-switch-dropdown {
+            position: absolute;
+            right: 0;
+            top: 100%;
+            margin-top: 0.5rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid #eee;
+            z-index: 50;
+            overflow: hidden;
+            display: none;
+            /* Hidden by default */
+        }
+
+        .view-switch-dropdown button {
+            display: block;
+            width: 100%;
+            padding: 0.75rem 1.5rem;
+            text-align: left;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .view-switch-dropdown button:hover {
+            background-color: #f5f5f5;
+        }
+
+        .view-switch-dropdown button.active {
+            background-color: #CAD5B3;
+            /* card-olive */
+            font-weight: 600;
+        }
     </style>
 </head>
 
@@ -1288,10 +1326,28 @@
                             <button id="today-btn" class="calendar-nav-btn today">Today</button>
                             <button id="next-month" class="calendar-nav-btn">&gt;</button>
                         </div>
-                        <h3 id="month-year" class="text-xl font-semibold text-text-dark">Month Year</h3>
-                        <div class="calendar-view-switch">
-                            <button id="month-view-btn" class="active">Month</button>
-                            <button id="list-view-btn">List</button>
+                        <h3 id="month-year" class="text-xl font-semibold text-text-dark text-center flex-grow">Month
+                            Year</h3>
+                        <div class="relative">
+                            <!-- Desktop View Switch -->
+                            <div class="calendar-view-switch hidden md:inline-flex">
+                                <button id="month-view-btn" class="active">Month</button>
+                                <button id="list-view-btn">List</button>
+                            </div>
+                            <!-- Mobile View Switch Trigger -->
+                            <button id="mobile-view-switch-btn"
+                                class="calendar-nav-btn inline-flex md:hidden items-center justify-center w-10 h-10">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z">
+                                    </path>
+                                </svg>
+                            </button>
+                            <!-- Mobile View Switch Dropdown -->
+                            <div id="view-switch-dropdown" class="view-switch-dropdown">
+                                <button id="mobile-month-view-btn" data-view="month">Month</button>
+                                <button id="mobile-list-view-btn" data-view="list">List</button>
+                            </div>
                         </div>
                     </div>
                     <div id="calendar-grid-view">
@@ -1657,6 +1713,12 @@
             const eventDetailsContent = document.getElementById('event-details-content');
             const eventListItems = document.querySelectorAll('.event-list-item');
 
+            // Mobile view switch elements
+            const mobileViewSwitchBtn = document.getElementById('mobile-view-switch-btn');
+            const viewSwitchDropdown = document.getElementById('view-switch-dropdown');
+            const mobileMonthViewBtn = document.getElementById('mobile-month-view-btn');
+            const mobileListViewBtn = document.getElementById('mobile-list-view-btn');
+
             // Get current year and month for realistic events
             const realToday = new Date();
             const realYear = realToday.getFullYear();
@@ -1818,6 +1880,15 @@
                     listViewBtn.classList.add('active');
                     calendarGridView.style.display = 'none';
                     calendarListView.style.display = 'block';
+                }
+
+                // Update mobile dropdown active state
+                if (view === 'month') {
+                    mobileMonthViewBtn.classList.add('active');
+                    mobileListViewBtn.classList.remove('active');
+                } else {
+                    mobileMonthViewBtn.classList.remove('active');
+                    mobileListViewBtn.classList.add('active');
                 }
 
                 // Update calendar content based on current view
@@ -2302,6 +2373,29 @@
                         // In a real implementation, this would load more questions
                         alert('Pertanyaan lainnya akan segera dimuat!');
                     });
+                }
+            });
+
+            // Mobile View Switch Dropdown Logic
+            mobileViewSwitchBtn.addEventListener('click', (event) => {
+                event.stopPropagation(); // Prevent click from closing immediately
+                viewSwitchDropdown.style.display = viewSwitchDropdown.style.display === 'block' ? 'none' : 'block';
+            });
+
+            mobileMonthViewBtn.addEventListener('click', () => {
+                switchView('month');
+                viewSwitchDropdown.style.display = 'none'; // Close dropdown
+            });
+
+            mobileListViewBtn.addEventListener('click', () => {
+                switchView('list');
+                viewSwitchDropdown.style.display = 'none'; // Close dropdown
+            });
+
+            // Close dropdown if clicking outside
+            document.addEventListener('click', (event) => {
+                if (!mobileViewSwitchBtn.contains(event.target) && !viewSwitchDropdown.contains(event.target)) {
+                    viewSwitchDropdown.style.display = 'none';
                 }
             });
         });
