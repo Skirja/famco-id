@@ -641,15 +641,6 @@ document.addEventListener('DOMContentLoaded', function () {
         window.addEventListener('scroll', checkCardVisibility);
         checkCardVisibility();
 
-        // Tanya Ahli button interaction
-        const tanyaAhliBtn = document.querySelector('.tanya-ahli-btn');
-        if (tanyaAhliBtn) {
-            tanyaAhliBtn.addEventListener('click', function () {
-                // Could open a modal or form in a real implementation
-                alert('Fitur Tanya Ahli akan segera tersedia!');
-            });
-        }
-
         // Question card click interaction
         questionCards.forEach(card => {
             card.addEventListener('click', function () {
