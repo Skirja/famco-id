@@ -518,13 +518,25 @@ document.addEventListener('DOMContentLoaded', function () {
     // Scroll to form and optionally select event
     function scrollToForm(eventId = null) {
         const formSection = document.getElementById('form-pendaftaran');
-        formSection.scrollIntoView({ behavior: 'smooth' });
 
-        if (eventId) {
-            const selectEvent = document.getElementById('select-event');
-            selectEvent.value = eventId;
-            // Trigger change event to update quota info
-            selectEvent.dispatchEvent(new Event('change'));
+        // Check if form section exists
+        if (formSection) {
+            formSection.scrollIntoView({ behavior: 'smooth' });
+
+            if (eventId) {
+                const selectEvent = document.getElementById('select-event');
+                if (selectEvent) {
+                    selectEvent.value = eventId;
+                    // Trigger change event to update quota info
+                    selectEvent.dispatchEvent(new Event('change'));
+                }
+            }
+        } else {
+            // If form section doesn't exist, scroll to registration section instead
+            const registrationSection = document.getElementById('registrasi');
+            if (registrationSection) {
+                registrationSection.scrollIntoView({ behavior: 'smooth' });
+            }
         }
     }
 
@@ -533,65 +545,62 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Populate Event Select Dropdown
     const selectEventDropdown = document.getElementById('select-event');
-    const allSpecificEvents = [];
-    for (const type in allEvents) {
-        for (const date in allEvents[type]) {
-            allSpecificEvents.push({
-                id: `${type}-${date}`,
-                title: `${allEvents[type][date].title} (${date})`,
-                quota: allEvents[type][date].quota,
-                registered: allEvents[type][date].registered
+
+    // Only proceed if the select-event element exists
+    if (selectEventDropdown) {
+        const allSpecificEvents = [];
+        for (const type in allEvents) {
+            for (const date in allEvents[type]) {
+                allSpecificEvents.push({
+                    id: `${type}-${date}`,
+                    title: `${allEvents[type][date].title} (${date})`,
+                    quota: allEvents[type][date].quota,
+                    registered: allEvents[type][date].registered
+                });
+            }
+        }
+        // Sort events for dropdown
+        allSpecificEvents.sort((a, b) => new Date(a.id.split('-')[1]) - new Date(b.id.split('-')[1]));
+
+        allSpecificEvents.forEach(event => {
+            const option = document.createElement('option');
+            option.value = event.id;
+            option.textContent = event.title;
+            option.dataset.quota = event.quota;
+            option.dataset.registered = event.registered;
+            selectEventDropdown.appendChild(option);
+        });
+
+        // Add listener to update quota info
+        const quotaInfoDiv = document.getElementById('quota-info');
+        const remainingQuotaSpan = document.getElementById('remaining-quota');
+
+        if (quotaInfoDiv && remainingQuotaSpan) {
+            selectEventDropdown.addEventListener('change', function () {
+                const selectedOption = this.options[this.selectedIndex];
+                if (selectedOption.value) {
+                    const quota = parseInt(selectedOption.dataset.quota);
+                    const registered = parseInt(selectedOption.dataset.registered);
+                    const remaining = quota - registered;
+
+                    remainingQuotaSpan.textContent = `${remaining} dari ${quota}`;
+                    quotaInfoDiv.className = 'quota-info'; // Reset class
+
+                    if (remaining <= 0) {
+                        remainingQuotaSpan.textContent += ' (Penuh)';
+                        quotaInfoDiv.classList.add('full');
+                    } else if (remaining <= 5) {
+                        remainingQuotaSpan.textContent += ' (Segera Habis!)';
+                        quotaInfoDiv.classList.add('warning');
+                    }
+
+                    quotaInfoDiv.style.display = 'block';
+                } else {
+                    quotaInfoDiv.style.display = 'none';
+                }
             });
         }
     }
-    // Sort events for dropdown
-    allSpecificEvents.sort((a, b) => new Date(a.id.split('-')[1]) - new Date(b.id.split('-')[1]));
-
-    allSpecificEvents.forEach(event => {
-        const option = document.createElement('option');
-        option.value = event.id;
-        option.textContent = event.title;
-        option.dataset.quota = event.quota;
-        option.dataset.registered = event.registered;
-        selectEventDropdown.appendChild(option);
-    });
-
-    // Add listener to update quota info
-    const quotaInfoDiv = document.getElementById('quota-info');
-    const remainingQuotaSpan = document.getElementById('remaining-quota');
-    selectEventDropdown.addEventListener('change', function () {
-        const selectedOption = this.options[this.selectedIndex];
-        if (selectedOption.value) {
-            const quota = parseInt(selectedOption.dataset.quota);
-            const registered = parseInt(selectedOption.dataset.registered);
-            const remaining = quota - registered;
-
-            remainingQuotaSpan.textContent = `${remaining} dari ${quota}`;
-            quotaInfoDiv.className = 'quota-info'; // Reset class
-
-            if (remaining <= 0) {
-                remainingQuotaSpan.textContent += ' (Penuh)';
-                quotaInfoDiv.classList.add('full');
-            } else if (remaining <= 5) {
-                remainingQuotaSpan.textContent += ' (Segera Habis!)';
-                quotaInfoDiv.classList.add('warning');
-            }
-
-            quotaInfoDiv.style.display = 'block';
-        } else {
-            quotaInfoDiv.style.display = 'none';
-        }
-    });
-
-    // Add scroll functionality to Register Event card buttons
-    document.querySelectorAll('.register-card .register-button').forEach(button => {
-        button.addEventListener('click', (e) => {
-            e.preventDefault(); // Prevent default if it's inside a form
-            // Find the event associated with the card - requires adding data attributes to cards
-            // For now, just scroll without selecting an event
-            scrollToForm();
-        });
-    });
 
     // Handle form submission (optional - basic prevention)
     document.getElementById('registration-form').addEventListener('submit', function (e) {
@@ -690,3 +699,45 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Footer: Set current year
 document.getElementById('current-year').textContent = new Date().getFullYear();
+
+// Global function for opening image modal (called from HTML onclick)
+function openImageModal(container) {
+    console.log('openImageModal called');
+    const imageModal = document.getElementById('image-modal');
+    const modalImage = document.getElementById('modal-image');
+
+    if (imageModal && modalImage) {
+        const img = container.querySelector('.register-image');
+        if (img) {
+            const imgSrc = img.getAttribute('src');
+            const imgAlt = img.getAttribute('alt');
+
+            modalImage.setAttribute('src', imgSrc);
+            modalImage.setAttribute('alt', imgAlt);
+            imageModal.style.display = 'flex';
+        }
+    }
+}
+
+// Set up image modal close functionality
+document.addEventListener('DOMContentLoaded', function () {
+    const imageModal = document.getElementById('image-modal');
+    const closeImageModal = document.getElementById('close-image-modal');
+
+    if (imageModal && closeImageModal) {
+        // Close image modal when clicking the close button
+        closeImageModal.addEventListener('click', function (e) {
+            console.log('Close button clicked');
+            e.stopPropagation(); // Prevent click from propagating to modal
+            imageModal.style.display = 'none';
+        });
+
+        // Close image modal when clicking outside the image
+        imageModal.addEventListener('click', function (e) {
+            if (e.target === this) {
+                console.log('Clicked outside image');
+                imageModal.style.display = 'none';
+            }
+        });
+    }
+});
