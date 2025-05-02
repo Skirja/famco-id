@@ -24,42 +24,34 @@ document.addEventListener('DOMContentLoaded', function () {
     const nextMonth = (realMonth + 1) % 12;
     const nextMonthYear = realMonth === 11 ? realYear + 1 : realYear;
 
-    // --- Enhanced Event Data --- 
+    // --- Enhanced Event Data ---
     // Keys match data-event-key in the event list
     // Values are objects where keys are YYYY-MM-DD and values are event details
     const allEvents = {
-        'workshop': {
-            [`${realYear}-${String(realMonth + 1).padStart(2, '0')}-15`]: { time: '10:00', title: 'Workshop Parenting Skills', desc: 'Learn effective parenting techniques with Dr. Maya.', quota: 20, registered: 15 },
-            [`${realYear}-${String(nextMonth + 1).padStart(2, '0')}-10`]: { time: '14:00', title: 'Advanced Parenting Workshop', desc: 'Advanced session on parenting for teenagers.', quota: 25, registered: 5 }
+        'islamic': {
+            [`${realYear}-${String(realMonth + 1).padStart(2, '0')}-15`]: { time: '10:00', title: 'Islamic Family Values', desc: 'Learn about Islamic family values with Ustadz Ahmad.', quota: 20, registered: 15 },
+            [`${realYear}-${String(nextMonth + 1).padStart(2, '0')}-10`]: { time: '14:00', title: 'Islamic Parenting', desc: 'Raising children with Islamic principles and values.', quota: 25, registered: 5 }
         },
-        'retreat': {
-            [`${realYear}-${String(realMonth + 1).padStart(2, '0')}-19`]: { time: '12:00', title: 'Marriage Retreat', desc: 'Weekend retreat for couples at Grand Hyatt.', quota: 10, registered: 10 }, // Full
-            [`${realYear}-${String(realMonth + 1).padStart(2, '0')}-20`]: { time: '09:00', title: 'Marriage Retreat Day 2', desc: 'Second day of the couples retreat program.', quota: 10, registered: 10 }, // Also Full
-            [`${realYear}-${String(nextMonth + 1).padStart(2, '0')}-15`]: { time: '08:00', title: 'Summer Marriage Retreat', desc: 'A 3-day retreat for married couples.', quota: 15, registered: 2 }
+        'parenting': {
+            [`${realYear}-${String(realMonth + 1).padStart(2, '0')}-19`]: { time: '12:00', title: 'Effective Parenting', desc: 'Learn effective parenting techniques with Dr. Maya.', quota: 10, registered: 8 },
+            [`${realYear}-${String(realMonth + 1).padStart(2, '0')}-20`]: { time: '09:00', title: 'Parenting for Teenagers', desc: 'Special session on parenting teenagers.', quota: 10, registered: 5 },
+            [`${realYear}-${String(nextMonth + 1).padStart(2, '0')}-15`]: { time: '08:00', title: 'Early Childhood Parenting', desc: 'Parenting techniques for children ages 0-5.', quota: 15, registered: 2 }
         },
-        'fun-day': {
-            [`${realYear}-${String(realMonth + 1).padStart(2, '0')}-25`]: { time: '13:00', title: 'Family Fun Day', desc: 'Outdoor games and activities at Taman Menteng.', quota: 50, registered: 30 },
-            [`${realYear}-${String(nextMonth + 1).padStart(2, '0')}-05`]: { time: '10:00', title: 'Family Adventure Day', desc: 'Treasure hunt and team-building activities.', quota: 40, registered: 12 }
+        'food': {
+            [`${realYear}-${String(realMonth + 1).padStart(2, '0')}-25`]: { time: '13:00', title: 'Healthy Family Meals', desc: 'Learn to prepare nutritious meals for your family.', quota: 50, registered: 30 },
+            [`${realYear}-${String(nextMonth + 1).padStart(2, '0')}-05`]: { time: '10:00', title: 'Nutrition for Children', desc: 'Understanding nutritional needs for growing children.', quota: 40, registered: 12 }
         },
-        'teen': {
-            [`${realYear}-${String(realMonth + 1).padStart(2, '0')}-05`]: { time: '16:00', title: 'Teen Counseling Group', desc: 'Support group session for teenagers.', quota: 15, registered: 8 },
-            [`${realYear}-${String(realMonth + 1).padStart(2, '0')}-12`]: { time: '16:00', title: 'Teen Mindfulness Workshop', desc: 'Stress management techniques for teens.', quota: 15, registered: 14 }
+        'creativity': {
+            [`${realYear}-${String(realMonth + 1).padStart(2, '0')}-05`]: { time: '16:00', title: 'Art for Children', desc: 'Creative art activities to develop children\'s imagination.', quota: 15, registered: 8 },
+            [`${realYear}-${String(realMonth + 1).padStart(2, '0')}-12`]: { time: '16:00', title: 'Music & Movement', desc: 'Exploring creativity through music and movement for children.', quota: 15, registered: 14 }
         },
-        'games': {
-            [`${realYear}-${String(realMonth + 1).padStart(2, '0')}-07`]: { time: '18:30', title: 'Family Games Night', desc: 'Board games and fun activities for all ages.', quota: 30, registered: 25 },
-            [`${realYear}-${String(realMonth + 1).padStart(2, '0')}-21`]: { time: '18:30', title: 'Family Games Night', desc: 'Special edition with new games and prizes.', quota: 30, registered: 10 }
-        },
-        'bonding': {
-            [`${realYear}-${String(realMonth + 1).padStart(2, '0')}-09`]: { time: '09:00', title: 'Parent-Child Bonding', desc: 'Art and craft activities for parents and children.', quota: 20, registered: 18 },
-            [`${realYear}-${String(realMonth + 1).padStart(2, '0')}-23`]: { time: '09:00', title: 'Father-Child Bonding', desc: 'Special activities focused on father-child relationships.', quota: 20, registered: 7 }
-        },
-        'cooking': {
-            [`${realYear}-${String(realMonth + 1).padStart(2, '0')}-14`]: { time: '11:00', title: 'Family Cooking Class', desc: 'Learn to make healthy meals together as a family.', quota: 12, registered: 9 },
-            [`${realYear}-${String(realMonth + 1).padStart(2, '0')}-28`]: { time: '11:00', title: 'Family Baking Class', desc: 'Bake delicious desserts with your children.', quota: 12, registered: 11 }
+        'pranikah': {
+            [`${realYear}-${String(realMonth + 1).padStart(2, '0')}-07`]: { time: '18:30', title: 'Persiapan Pranikah', desc: 'Kelas persiapan untuk calon pengantin.', quota: 30, registered: 25 },
+            [`${realYear}-${String(realMonth + 1).padStart(2, '0')}-21`]: { time: '18:30', title: 'Keuangan Pranikah', desc: 'Mengelola keuangan sebelum dan sesudah menikah.', quota: 30, registered: 10 }
         }
     };
 
-    // --- Global State --- 
+    // --- Global State ---
     let currentDate = new Date();
     let currentFilterKey = null; // Which event type is selected
     let currentView = 'month'; // 'month' or 'list'
@@ -152,13 +144,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // Get the color for an event type
     function getEventTypeColor(type) {
         const colorMap = {
-            'workshop': '#FF9F87',
-            'retreat': '#8B72BE',
-            'fun-day': '#F3B562',
-            'teen': '#52B788',
-            'games': '#4EA8DE',
-            'bonding': '#E76F51',
-            'cooking': '#B5838D'
+            'islamic': '#FF9F87',
+            'parenting': '#8B72BE',
+            'food': '#F3B562',
+            'creativity': '#52B788',
+            'pranikah': '#4EA8DE'
         };
 
         return colorMap[type] || '#E8927C';
@@ -298,7 +288,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // --- Calendar Rendering Function --- 
+    // --- Calendar Rendering Function ---
     function renderCalendar(year, month) { // month is 0-11
         monthYearElement.textContent = `${monthNamesID[month]} ${year}`;
         calendarGrid.innerHTML = ''; // Clear previous grid
@@ -442,7 +432,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // --- Event Listeners --- 
+    // --- Event Listeners ---
     todayBtn.addEventListener('click', () => {
         currentDate = new Date();
         updateCalendar();
@@ -538,7 +528,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // --- Initial Render --- 
+    // --- Initial Render ---
     updateCalendar();
 
     // Populate Event Select Dropdown

@@ -27,6 +27,8 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
     </style>
+    <!-- AOS - Animate On Scroll Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 
@@ -50,21 +52,21 @@
                 </div>
 
                 <div class="flex justify-end">
-                    <a href="#learn-more"
+                    <button onclick="document.querySelector('#about-us').scrollIntoView({ behavior: 'smooth' })"
                         class="learn-more-btn px-6 py-3 sm:px-10 sm:py-4 border-2 border-white text-white hover:bg-white hover:text-black font-medium tracking-wide transition-all duration-300 text-base sm:text-lg">
                         PELAJARI LEBIH LANJUT
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- About Section -->
-    <div class="relative">
+    <div class="relative" id="about-us">
         <!-- Brown section with navigation and headings -->
-        <div class="bg-warm-brown py-12 overflow-hidden relative" style="background-image: url('./assets/img/dried-flower.png'); 
-                    background-size: cover; 
-                    background-repeat: no-repeat; 
+        <div class="bg-warm-brown py-12 overflow-hidden relative" style="background-image: url('./assets/img/dried-flower.png');
+                    background-size: cover;
+                    background-repeat: no-repeat;
                     background-position: center;">
             <!-- Semi-transparent overlay for text readability -->
             <div class="absolute inset-0 bg-warm-brown opacity-70"></div>
@@ -101,6 +103,194 @@
             </div>
         </div>
     </div>
+
+    <!-- Our Team Section -->
+    <section id="our-team" class="py-24 relative overflow-hidden bg-gradient-to-br from-warm-orange to-[#FF7F50]">
+        <!-- Decorative elements -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+            <div class="absolute top-10 left-10 w-64 h-64 rounded-full border-8 border-white opacity-30"></div>
+            <div class="absolute bottom-20 right-10 w-48 h-48 rounded-full border-8 border-white opacity-30"></div>
+            <div
+                class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full border-4 border-white opacity-30">
+            </div>
+        </div>
+
+        <!-- Subtle pattern overlay -->
+        <div
+            class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0djZoNnYtNmgtNnptNiA2djZoLTZ2LTZoNnptLTYtNnYtNmg2djZoLTZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-40">
+        </div>
+
+        <div class="container mx-auto px-8 md:px-16 lg:px-24 relative z-10">
+            <div class="text-center mb-16 relative">
+                <h2 class="text-6xl font-bold text-white mb-6 relative inline-block">
+                    Our Team
+                    <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-white rounded-full">
+                    </div>
+                </h2>
+            </div>
+
+            <!-- Main Team Members - Featured with larger photos -->
+            <div class="flex justify-center items-center gap-12 mb-20">
+                <!-- Shinta Doriza -->
+                <div class="team-member-featured group mx-4">
+                    <div
+                        class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto max-w-[150px]">
+                        <div class="team-photo-container featured">
+                            <img src="./assets/img/team/shinta.jpg" alt="Shinta Doriza" class="team-photo">
+                        </div>
+                    </div>
+                    <div class="team-info text-center mt-4">
+                        <h3 class="text-xl font-bold text-white mb-0.5">Shinta Doriza, M.Pd</h3>
+                    </div>
+                </div>
+
+                <!-- Jaka Marsita -->
+                <div class="team-member-featured group mx-4">
+                    <div
+                        class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto max-w-[150px]">
+                        <div class="team-photo-container featured">
+                            <img src="./assets/img/team/jaka.jpg" alt="Jaka Marsita" class="team-photo">
+                        </div>
+                    </div>
+                    <div class="team-info text-center mt-4">
+                        <h3 class="text-xl font-bold text-white mb-0.5">Jaka Marsita, M.Par</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle row centered -->
+            <div class="flex justify-center items-center gap-8 mb-12">
+                <!-- Afraah Stabita -->
+                <div class="team-member group mx-4" data-aos="fade-up" data-aos-delay="100">
+                    <div
+                        class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[100px] h-[100px]">
+                        <div class="team-photo-container">
+                            <img src="./assets/img/team/afraah.jpg" alt="Afraah Stabita" class="team-photo">
+                        </div>
+                    </div>
+                    <div class="team-info text-center mt-4">
+                        <h3 class="text-lg font-bold text-white mb-0.5">Afraah Stabita</h3>
+
+                    </div>
+                </div>
+
+                <!-- Anita Oktaviani -->
+                <div class="team-member group mx-4" data-aos="fade-up" data-aos-delay="150">
+                    <div
+                        class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[100px] h-[100px]">
+                        <div class="team-photo-container">
+                            <img src="./assets/img/team/anita.jpg" alt="Anita Oktaviani" class="team-photo">
+                        </div>
+                    </div>
+                    <div class="team-info text-center mt-4">
+                        <h3 class="text-lg font-bold text-white mb-0.5">Anita Oktaviani</h3>
+
+                    </div>
+                </div>
+
+                <!-- Aulia Salsabila -->
+                <div class="team-member group mx-4" data-aos="fade-up" data-aos-delay="200">
+                    <div
+                        class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[100px] h-[100px]">
+                        <div class="team-photo-container">
+                            <img src="./assets/img/team/aulia.jpg" alt="Aulia Salsabila" class="team-photo">
+                        </div>
+                    </div>
+                    <div class="team-info text-center mt-4">
+                        <h3 class="text-lg font-bold text-white mb-0.5">Aulia Salsabila</h3>
+
+                    </div>
+                </div>
+
+                <!-- Diana Putricia E. -->
+                <div class="team-member group mx-4" data-aos="fade-up" data-aos-delay="250">
+                    <div
+                        class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[100px] h-[100px]">
+                        <div class="team-photo-container">
+                            <img src="./assets/img/team/diana.jpg" alt="Diana Putricia E." class="team-photo">
+                        </div>
+                    </div>
+                    <div class="team-info text-center mt-4">
+                        <h3 class="text-lg font-bold text-white mb-0.5">Diana Putricia E.</h3>
+
+                    </div>
+                </div>
+
+                <!-- Nailah Arifah A. -->
+                <div class="team-member group mx-4" data-aos="fade-up" data-aos-delay="300">
+                    <div
+                        class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[100px] h-[100px]">
+                        <div class="team-photo-container">
+                            <img src="./assets/img/team/nailah.jpg" alt="Nailah Arifah A." class="team-photo">
+                        </div>
+                    </div>
+                    <div class="team-info text-center mt-4">
+                        <h3 class="text-lg font-bold text-white mb-0.5">Nailah Arifah A.</h3>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom row centered -->
+            <div class="flex justify-center items-center gap-8 mt-12">
+                <!-- Nabila Putri L. -->
+                <div class="team-member group mx-4" data-aos="fade-up" data-aos-delay="100">
+                    <div
+                        class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[100px] h-[100px]">
+                        <div class="team-photo-container">
+                            <img src="./assets/img/team/nabila.jpg" alt="Nabila Putri L." class="team-photo">
+                        </div>
+                    </div>
+                    <div class="team-info text-center mt-4">
+                        <h3 class="text-lg font-bold text-white mb-0.5">Nabila Putri L.</h3>
+
+                    </div>
+                </div>
+
+                <!-- Siti Arafah -->
+                <div class="team-member group mx-4" data-aos="fade-up" data-aos-delay="150">
+                    <div
+                        class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[100px] h-[100px]">
+                        <div class="team-photo-container">
+                            <img src="./assets/img/team/siti.jpg" alt="Siti Arafah" class="team-photo">
+                        </div>
+                    </div>
+                    <div class="team-info text-center mt-4">
+                        <h3 class="text-lg font-bold text-white mb-0.5">Siti Arafah</h3>
+
+                    </div>
+                </div>
+
+                <!-- Syifa Niami -->
+                <div class="team-member group mx-4" data-aos="fade-up" data-aos-delay="200">
+                    <div
+                        class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[100px] h-[100px]">
+                        <div class="team-photo-container">
+                            <img src="./assets/img/team/syifa.jpg" alt="Syifa Niami" class="team-photo">
+                        </div>
+                    </div>
+                    <div class="team-info text-center mt-4">
+                        <h3 class="text-lg font-bold text-white mb-0.5">Syifa Niami</h3>
+
+                    </div>
+                </div>
+
+                <!-- Widiana Suhandi -->
+                <div class="team-member group mx-4" data-aos="fade-up" data-aos-delay="250">
+                    <div
+                        class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[100px] h-[100px]">
+                        <div class="team-photo-container">
+                            <img src="./assets/img/team/widiana.jpg" alt="Widiana Suhandi" class="team-photo">
+                        </div>
+                    </div>
+                    <div class="team-info text-center mt-4">
+                        <h3 class="text-lg font-bold text-white mb-0.5">Widiana Suhandi</h3>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Our Fiture Section -->
     <section id="fiture" class="py-24 bg-white relative overflow-hidden">
@@ -161,8 +351,11 @@
                             berkualitas!
                         </p>
                         <div class="flex justify-between text-sm mb-4">
-                            <a href="#kalender" class="font-semibold hover:underline" onclick="document.querySelector('#kalender').scrollIntoView({ behavior: 'smooth' })">KALENDER EVENT</a>
-                            <a href="#registrasi" class="font-semibold hover:underline" onclick="document.querySelector('#registrasi').scrollIntoView({ behavior: 'smooth' })">REGISTRASI</a>
+                            <a href="#kalender" class="font-semibold hover:underline"
+                                onclick="document.querySelector('#kalender').scrollIntoView({ behavior: 'smooth' })">KALENDER
+                                EVENT</a>
+                            <a href="#registrasi" class="font-semibold hover:underline"
+                                onclick="document.querySelector('#registrasi').scrollIntoView({ behavior: 'smooth' })">REGISTRASI</a>
                         </div>
                     </div>
                     <hr class="border-text-dark my-4">
@@ -383,13 +576,11 @@
                         CHOOSE YOUR EVENT
                     </div>
                     <div class="pr-2" style="max-height: none;"> <!-- Removed overflow-y and fixed height -->
-                        <div class="event-list-item" data-event-key="workshop">Parenting Workshop</div>
-                        <div class="event-list-item" data-event-key="fun-day">Family Fun Day</div>
-                        <div class="event-list-item" data-event-key="retreat">Marriage Retreat</div>
-                        <div class="event-list-item" data-event-key="teen">Teen Counseling</div>
-                        <div class="event-list-item" data-event-key="games">Family Games Night</div>
-                        <div class="event-list-item" data-event-key="bonding">Parent-Child Bonding</div>
-                        <div class="event-list-item" data-event-key="cooking">Family Cooking Class</div>
+                        <div class="event-list-item" data-event-key="islamic">ISLAMIC FAMILY CLASS</div>
+                        <div class="event-list-item" data-event-key="parenting">PARENTING</div>
+                        <div class="event-list-item" data-event-key="food">FAMILY FOOD AND NUTRITION</div>
+                        <div class="event-list-item" data-event-key="creativity">CHILD CREATIVITY</div>
+                        <div class="event-list-item" data-event-key="pranikah">PRANIKAH</div>
                     </div>
                     <div class="mt-6 event-details">
                         <h4 class="font-semibold mb-2 text-text-dark">Selected Event Details</h4>
@@ -506,7 +697,7 @@
                 <h2 class="text-5xl font-bold text-white article-heading">Article!</h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12"> <!-- Increased gap from 10 to 12 -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <!-- Article Card 1: Ekonomi Keluarga -->
                 <div class="article-card">
                     <div class="article-content">
@@ -688,8 +879,7 @@
                         <a href="#" aria-label="Instagram" class="text-white hover:text-warm-orange transition-colors">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path fill-rule="evenodd"
-                                    d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.013-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.023.047 1.351.058 3.807.058h.468c2.456 0 2.784-.011 3.807-.058.975-.045 1.504-.207 1.857-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.047-1.023.058-1.351.058-3.807v-.468c0-2.456-.011-2.784-.058-3.807-.045-.975-.207-1.504-.344-1.857-.182-.467-.399-.8-.748-1.15-.35-.35-.683-.566-1.15-.748-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
-                                    clip-rule="evenodd" />
+                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                             </svg>
                         </a>
                     </div>
@@ -707,6 +897,21 @@
     </footer>
 
     <script src="./assets/scripts/scripts.js"></script>
+
+    <!-- AOS - Animate On Scroll Initialization -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-out',
+                once: true,
+                offset: 50,
+                delay: 100
+            });
+        });
+    </script>
 </body>
 
 </html>

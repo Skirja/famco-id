@@ -297,39 +297,29 @@ body {
     /* Stronger highlight when selected */
 }
 
-.event-dot.workshop {
+.event-dot.islamic {
     background-color: #FF9F87;
-    /* Warm orange for workshop */
+    /* Warm orange for Islamic Family Class */
 }
 
-.event-dot.retreat {
+.event-dot.parenting {
     background-color: #8B72BE;
-    /* Purple for retreat */
+    /* Purple for Parenting */
 }
 
-.event-dot.fun-day {
+.event-dot.food {
     background-color: #F3B562;
-    /* Yellow/orange for fun day */
+    /* Yellow/orange for Family Food and Nutrition */
 }
 
-.event-dot.teen {
+.event-dot.creativity {
     background-color: #52B788;
-    /* Green for teen */
+    /* Green for Child Creativity */
 }
 
-.event-dot.games {
+.event-dot.pranikah {
     background-color: #4EA8DE;
-    /* Blue for games */
-}
-
-.event-dot.bonding {
-    background-color: #E76F51;
-    /* Coral for bonding */
-}
-
-.event-dot.cooking {
-    background-color: #B5838D;
-    /* Mauve for cooking */
+    /* Blue for Pranikah */
 }
 
 .event-count {
@@ -427,6 +417,146 @@ body {
     border-radius: 50%;
     margin-right: 8px;
     vertical-align: middle;
+}
+
+/* Our Team Section Styles - Improved */
+#our-team {
+    position: relative;
+}
+
+#our-team::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../img/dried-flower.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.team-photo-container {
+    position: relative;
+    overflow: hidden;
+    height: 0;
+    padding-bottom: 100%;
+    /* Square aspect ratio for perfect circle */
+    transition: all 0.5s ease;
+}
+
+.team-photo-container.featured {
+    padding-bottom: 100%;
+    /* Keep it circular */
+}
+
+.team-photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.team-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 60%);
+    opacity: 0.7;
+    transition: opacity 0.4s ease;
+}
+
+.team-member-featured {
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.team-member-featured:hover {
+    transform: translateY(-10px);
+}
+
+.team-member-featured:hover .team-photo {
+    transform: scale(1.05);
+}
+
+.team-member {
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+}
+
+.team-member:hover .team-photo {
+    transform: scale(1.08);
+}
+
+.team-info {
+    margin-top: 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.team-name {
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.team-member-featured .team-name {
+    font-size: 1.4rem;
+    margin-bottom: 0.4rem;
+}
+
+.team-name::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.team-member:hover .team-name::after,
+.team-member-featured:hover .team-name::after {
+    width: 70%;
+}
+
+.team-role {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85rem;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.team-member-featured .team-role {
+    font-size: 1rem;
+}
+
+/* Animation for staggered appearance */
+[data-aos="fade-up"] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+[data-aos="fade-up"].aos-animate {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* List view styles */
