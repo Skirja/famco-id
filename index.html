@@ -128,20 +128,21 @@
         </div>
 
         <div class="container mx-auto px-8 md:px-16 lg:px-24 relative z-10">
-            <div class="text-center mb-16 relative">
-                <h2 class="text-5xl font-bold text-white mb-6 relative inline-block">
+            <div class="text-center mb-10 sm:mb-16 relative">
+                <h2 class="text-4xl sm:text-5xl font-bold text-white mb-6 relative inline-block">
                     Our Team
-                    <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-white rounded-full">
+                    <div
+                        class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-16 sm:w-24 h-1 bg-white rounded-full">
                     </div>
                 </h2>
             </div>
 
             <!-- Main Team Members - Featured with larger photos -->
-            <div class="flex justify-center items-center gap-12 mb-20">
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-12 mb-12 sm:mb-20">
                 <!-- Shinta Doriza -->
-                <div class="team-member-featured group mx-4">
+                <div class="team-member-featured group mx-4 mb-8 sm:mb-0">
                     <div
-                        class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto max-w-[150px]">
+                        class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[120px] h-[120px] sm:w-[150px] sm:h-[150px]">
                         <div class="team-photo-container featured">
                             <img src="./assets/img/team/shinta.jpg" alt="Shinta Doriza" class="team-photo">
                         </div>
@@ -154,7 +155,7 @@
                 <!-- Jaka Marsita -->
                 <div class="team-member-featured group mx-4">
                     <div
-                        class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto max-w-[150px]">
+                        class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[120px] h-[120px] sm:w-[150px] sm:h-[150px]">
                         <div class="team-photo-container featured">
                             <img src="./assets/img/team/jaka.jpg" alt="Jaka Marsita" class="team-photo">
                         </div>
@@ -165,134 +166,250 @@
                 </div>
             </div>
 
-            <!-- Middle row centered -->
-            <div class="flex justify-center items-center gap-8 mb-12">
-                <!-- Afraah Stabita -->
-                <div class="team-member group mx-4" data-aos="fade-up" data-aos-delay="100">
-                    <div
-                        class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[100px] h-[100px]">
-                        <div class="team-photo-container">
-                            <img src="./assets/img/team/afraah.jpg" alt="Afraah Stabita" class="team-photo">
+            <!-- Desktop Layout - Hidden on mobile, visible on sm and up -->
+            <div class="hidden sm:block">
+                <!-- Middle row centered - Responsive -->
+                <div class="flex flex-wrap justify-center items-center gap-4 sm:gap-8 mb-12">
+                    <!-- Afraah Stabita -->
+                    <div class="team-member group mx-2 sm:mx-4" data-aos="fade-up" data-aos-delay="100">
+                        <div
+                            class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[100px] h-[100px]">
+                            <div class="team-photo-container">
+                                <img src="./assets/img/team/afraah.jpg" alt="Afraah Stabita" class="team-photo">
+                            </div>
+                        </div>
+                        <div class="team-info text-center mt-4">
+                            <h3 class="text-lg font-bold text-white mb-0.5">Afraah Stabita</h3>
                         </div>
                     </div>
-                    <div class="team-info text-center mt-4">
-                        <h3 class="text-lg font-bold text-white mb-0.5">Afraah Stabita</h3>
 
+                    <!-- Anita Oktaviani -->
+                    <div class="team-member group mx-2 sm:mx-4" data-aos="fade-up" data-aos-delay="150">
+                        <div
+                            class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[100px] h-[100px]">
+                            <div class="team-photo-container">
+                                <img src="./assets/img/team/anita.jpg" alt="Anita Oktaviani" class="team-photo">
+                            </div>
+                        </div>
+                        <div class="team-info text-center mt-4">
+                            <h3 class="text-lg font-bold text-white mb-0.5">Anita Oktaviani</h3>
+                        </div>
+                    </div>
+
+                    <!-- Aulia Salsabila -->
+                    <div class="team-member group mx-2 sm:mx-4" data-aos="fade-up" data-aos-delay="200">
+                        <div
+                            class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[100px] h-[100px]">
+                            <div class="team-photo-container">
+                                <img src="./assets/img/team/aulia.jpg" alt="Aulia Salsabila" class="team-photo">
+                            </div>
+                        </div>
+                        <div class="team-info text-center mt-4">
+                            <h3 class="text-lg font-bold text-white mb-0.5">Aulia Salsabila</h3>
+                        </div>
+                    </div>
+
+                    <!-- Diana Putricia E. -->
+                    <div class="team-member group mx-2 sm:mx-4" data-aos="fade-up" data-aos-delay="250">
+                        <div
+                            class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[100px] h-[100px]">
+                            <div class="team-photo-container">
+                                <img src="./assets/img/team/diana.jpg" alt="Diana Putricia E." class="team-photo">
+                            </div>
+                        </div>
+                        <div class="team-info text-center mt-4">
+                            <h3 class="text-lg font-bold text-white mb-0.5">Diana Putricia E.</h3>
+                        </div>
+                    </div>
+
+                    <!-- Nailah Arifah A. -->
+                    <div class="team-member group mx-2 sm:mx-4" data-aos="fade-up" data-aos-delay="300">
+                        <div
+                            class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[100px] h-[100px]">
+                            <div class="team-photo-container">
+                                <img src="./assets/img/team/nailah.jpg" alt="Nailah Arifah A." class="team-photo">
+                            </div>
+                        </div>
+                        <div class="team-info text-center mt-4">
+                            <h3 class="text-lg font-bold text-white mb-0.5">Nailah Arifah A.</h3>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Anita Oktaviani -->
-                <div class="team-member group mx-4" data-aos="fade-up" data-aos-delay="150">
-                    <div
-                        class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[100px] h-[100px]">
-                        <div class="team-photo-container">
-                            <img src="./assets/img/team/anita.jpg" alt="Anita Oktaviani" class="team-photo">
+                <!-- Bottom row centered - Responsive -->
+                <div class="flex flex-wrap justify-center items-center gap-4 sm:gap-8">
+                    <!-- Nabila Putri L. -->
+                    <div class="team-member group mx-2 sm:mx-4" data-aos="fade-up" data-aos-delay="100">
+                        <div
+                            class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[100px] h-[100px]">
+                            <div class="team-photo-container">
+                                <img src="./assets/img/team/nabila.jpg" alt="Nabila Putri L." class="team-photo">
+                            </div>
+                        </div>
+                        <div class="team-info text-center mt-4">
+                            <h3 class="text-lg font-bold text-white mb-0.5">Nabila Putri L.</h3>
                         </div>
                     </div>
-                    <div class="team-info text-center mt-4">
-                        <h3 class="text-lg font-bold text-white mb-0.5">Anita Oktaviani</h3>
 
-                    </div>
-                </div>
-
-                <!-- Aulia Salsabila -->
-                <div class="team-member group mx-4" data-aos="fade-up" data-aos-delay="200">
-                    <div
-                        class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[100px] h-[100px]">
-                        <div class="team-photo-container">
-                            <img src="./assets/img/team/aulia.jpg" alt="Aulia Salsabila" class="team-photo">
+                    <!-- Siti Arafah -->
+                    <div class="team-member group mx-2 sm:mx-4" data-aos="fade-up" data-aos-delay="150">
+                        <div
+                            class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[100px] h-[100px]">
+                            <div class="team-photo-container">
+                                <img src="./assets/img/team/siti.jpg" alt="Siti Arafah" class="team-photo">
+                            </div>
+                        </div>
+                        <div class="team-info text-center mt-4">
+                            <h3 class="text-lg font-bold text-white mb-0.5">Siti Arafah</h3>
                         </div>
                     </div>
-                    <div class="team-info text-center mt-4">
-                        <h3 class="text-lg font-bold text-white mb-0.5">Aulia Salsabila</h3>
 
-                    </div>
-                </div>
-
-                <!-- Diana Putricia E. -->
-                <div class="team-member group mx-4" data-aos="fade-up" data-aos-delay="250">
-                    <div
-                        class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[100px] h-[100px]">
-                        <div class="team-photo-container">
-                            <img src="./assets/img/team/diana.jpg" alt="Diana Putricia E." class="team-photo">
+                    <!-- Syifa Niami -->
+                    <div class="team-member group mx-2 sm:mx-4" data-aos="fade-up" data-aos-delay="200">
+                        <div
+                            class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[100px] h-[100px]">
+                            <div class="team-photo-container">
+                                <img src="./assets/img/team/syifa.jpg" alt="Syifa Niami" class="team-photo">
+                            </div>
+                        </div>
+                        <div class="team-info text-center mt-4">
+                            <h3 class="text-lg font-bold text-white mb-0.5">Syifa Niami</h3>
                         </div>
                     </div>
-                    <div class="team-info text-center mt-4">
-                        <h3 class="text-lg font-bold text-white mb-0.5">Diana Putricia E.</h3>
 
-                    </div>
-                </div>
-
-                <!-- Nailah Arifah A. -->
-                <div class="team-member group mx-4" data-aos="fade-up" data-aos-delay="300">
-                    <div
-                        class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[100px] h-[100px]">
-                        <div class="team-photo-container">
-                            <img src="./assets/img/team/nailah.jpg" alt="Nailah Arifah A." class="team-photo">
+                    <!-- Widiana Suhandi -->
+                    <div class="team-member group mx-2 sm:mx-4" data-aos="fade-up" data-aos-delay="250">
+                        <div
+                            class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[100px] h-[100px]">
+                            <div class="team-photo-container">
+                                <img src="./assets/img/team/widiana.jpg" alt="Widiana Suhandi" class="team-photo">
+                            </div>
                         </div>
-                    </div>
-                    <div class="team-info text-center mt-4">
-                        <h3 class="text-lg font-bold text-white mb-0.5">Nailah Arifah A.</h3>
-
+                        <div class="team-info text-center mt-4">
+                            <h3 class="text-lg font-bold text-white mb-0.5">Widiana Suhandi</h3>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Bottom row centered -->
-            <div class="flex justify-center items-center gap-8 mt-12">
-                <!-- Nabila Putri L. -->
-                <div class="team-member group mx-4" data-aos="fade-up" data-aos-delay="100">
-                    <div
-                        class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[100px] h-[100px]">
-                        <div class="team-photo-container">
-                            <img src="./assets/img/team/nabila.jpg" alt="Nabila Putri L." class="team-photo">
+            <!-- Mobile Layout - Visible on mobile, hidden on sm and up -->
+            <div class="block sm:hidden">
+                <div class="grid grid-cols-2 gap-3 justify-items-center">
+                    <!-- Afraah Stabita -->
+                    <div class="team-member group mb-4" data-aos="fade-up" data-aos-delay="100">
+                        <div
+                            class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[70px] h-[70px]">
+                            <div class="team-photo-container">
+                                <img src="./assets/img/team/afraah.jpg" alt="Afraah Stabita" class="team-photo">
+                            </div>
+                        </div>
+                        <div class="team-info text-center mt-2">
+                            <h3 class="text-sm font-bold text-white">Afraah Stabita</h3>
                         </div>
                     </div>
-                    <div class="team-info text-center mt-4">
-                        <h3 class="text-lg font-bold text-white mb-0.5">Nabila Putri L.</h3>
 
-                    </div>
-                </div>
-
-                <!-- Siti Arafah -->
-                <div class="team-member group mx-4" data-aos="fade-up" data-aos-delay="150">
-                    <div
-                        class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[100px] h-[100px]">
-                        <div class="team-photo-container">
-                            <img src="./assets/img/team/siti.jpg" alt="Siti Arafah" class="team-photo">
+                    <!-- Anita Oktaviani -->
+                    <div class="team-member group mb-4" data-aos="fade-up" data-aos-delay="150">
+                        <div
+                            class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[70px] h-[70px]">
+                            <div class="team-photo-container">
+                                <img src="./assets/img/team/anita.jpg" alt="Anita Oktaviani" class="team-photo">
+                            </div>
+                        </div>
+                        <div class="team-info text-center mt-2">
+                            <h3 class="text-sm font-bold text-white">Anita Oktaviani</h3>
                         </div>
                     </div>
-                    <div class="team-info text-center mt-4">
-                        <h3 class="text-lg font-bold text-white mb-0.5">Siti Arafah</h3>
 
-                    </div>
-                </div>
-
-                <!-- Syifa Niami -->
-                <div class="team-member group mx-4" data-aos="fade-up" data-aos-delay="200">
-                    <div
-                        class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[100px] h-[100px]">
-                        <div class="team-photo-container">
-                            <img src="./assets/img/team/syifa.jpg" alt="Syifa Niami" class="team-photo">
+                    <!-- Aulia Salsabila -->
+                    <div class="team-member group mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <div
+                            class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[70px] h-[70px]">
+                            <div class="team-photo-container">
+                                <img src="./assets/img/team/aulia.jpg" alt="Aulia Salsabila" class="team-photo">
+                            </div>
+                        </div>
+                        <div class="team-info text-center mt-2">
+                            <h3 class="text-sm font-bold text-white">Aulia Salsabila</h3>
                         </div>
                     </div>
-                    <div class="team-info text-center mt-4">
-                        <h3 class="text-lg font-bold text-white mb-0.5">Syifa Niami</h3>
 
-                    </div>
-                </div>
-
-                <!-- Widiana Suhandi -->
-                <div class="team-member group mx-4" data-aos="fade-up" data-aos-delay="250">
-                    <div
-                        class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[100px] h-[100px]">
-                        <div class="team-photo-container">
-                            <img src="./assets/img/team/widiana.jpg" alt="Widiana Suhandi" class="team-photo">
+                    <!-- Diana Putricia E. -->
+                    <div class="team-member group mb-4" data-aos="fade-up" data-aos-delay="250">
+                        <div
+                            class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[70px] h-[70px]">
+                            <div class="team-photo-container">
+                                <img src="./assets/img/team/diana.jpg" alt="Diana Putricia E." class="team-photo">
+                            </div>
+                        </div>
+                        <div class="team-info text-center mt-2">
+                            <h3 class="text-sm font-bold text-white">Diana Putricia E.</h3>
                         </div>
                     </div>
-                    <div class="team-info text-center mt-4">
-                        <h3 class="text-lg font-bold text-white mb-0.5">Widiana Suhandi</h3>
 
+                    <!-- Nailah Arifah A. -->
+                    <div class="team-member group mb-4" data-aos="fade-up" data-aos-delay="300">
+                        <div
+                            class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[70px] h-[70px]">
+                            <div class="team-photo-container">
+                                <img src="./assets/img/team/nailah.jpg" alt="Nailah Arifah A." class="team-photo">
+                            </div>
+                        </div>
+                        <div class="team-info text-center mt-2">
+                            <h3 class="text-sm font-bold text-white">Nailah Arifah A.</h3>
+                        </div>
+                    </div>
+
+                    <!-- Nabila Putri L. -->
+                    <div class="team-member group mb-4" data-aos="fade-up" data-aos-delay="100">
+                        <div
+                            class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[70px] h-[70px]">
+                            <div class="team-photo-container">
+                                <img src="./assets/img/team/nabila.jpg" alt="Nabila Putri L." class="team-photo">
+                            </div>
+                        </div>
+                        <div class="team-info text-center mt-2">
+                            <h3 class="text-sm font-bold text-white">Nabila Putri L.</h3>
+                        </div>
+                    </div>
+
+                    <!-- Siti Arafah -->
+                    <div class="team-member group mb-4" data-aos="fade-up" data-aos-delay="150">
+                        <div
+                            class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[70px] h-[70px]">
+                            <div class="team-photo-container">
+                                <img src="./assets/img/team/siti.jpg" alt="Siti Arafah" class="team-photo">
+                            </div>
+                        </div>
+                        <div class="team-info text-center mt-2">
+                            <h3 class="text-sm font-bold text-white">Siti Arafah</h3>
+                        </div>
+                    </div>
+
+                    <!-- Syifa Niami -->
+                    <div class="team-member group mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <div
+                            class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[70px] h-[70px]">
+                            <div class="team-photo-container">
+                                <img src="./assets/img/team/syifa.jpg" alt="Syifa Niami" class="team-photo">
+                            </div>
+                        </div>
+                        <div class="team-info text-center mt-2">
+                            <h3 class="text-sm font-bold text-white">Syifa Niami</h3>
+                        </div>
+                    </div>
+
+                    <!-- Widiana Suhandi -->
+                    <div class="team-member group mb-4" data-aos="fade-up" data-aos-delay="250">
+                        <div
+                            class="relative overflow-hidden rounded-full shadow-lg border-2 border-white/30 mx-auto w-[70px] h-[70px]">
+                            <div class="team-photo-container">
+                                <img src="./assets/img/team/widiana.jpg" alt="Widiana Suhandi" class="team-photo">
+                            </div>
+                        </div>
+                        <div class="team-info text-center mt-2">
+                            <h3 class="text-sm font-bold text-white">Widiana Suhandi</h3>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -446,7 +563,7 @@
                         JENIS LAYANAN
                     </div>
 
-                    <div class="flex items-center mb-10 w-full">
+                    <div class="flex items-center mb-10 w-full justify-evenly">
                         <span
                             class="border-2 border-text-dark rounded-full px-8 py-3 mr-5 font-medium bg-white shadow-sm hover:shadow-md hover:bg-text-dark hover:text-white transition-all duration-300 cursor-pointer">ONLINE</span>
                         <span class="text-sm">
@@ -455,7 +572,7 @@
                         </span>
                     </div>
 
-                    <div class="flex items-center w-full">
+                    <div class="flex items-center w-full justify-evenly">
                         <span class="text-sm text-right mr-5">
                             <span class="font-medium">Available at</span><br>
                             Monday - Friday

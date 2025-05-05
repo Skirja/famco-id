@@ -507,6 +507,37 @@ body {
     /* Keep it circular */
 }
 
+/* Mobile responsive styles for team section */
+@media (max-width: 640px) {
+    .team-member h3 {
+        font-size: 0.9rem;
+    }
+
+    .team-member-featured h3 {
+        font-size: 1.1rem;
+    }
+
+    #our-team {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    .team-info {
+        margin-top: 0.5rem;
+    }
+
+    .team-member {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 375px) {
+    .team-member h3 {
+        font-size: 0.8rem;
+    }
+}
+
 .team-photo {
     position: absolute;
     top: 0;
